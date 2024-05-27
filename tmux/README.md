@@ -6,6 +6,7 @@
 4. [Create symbolic links for tmux configuration files](#set-up-config-tmux-files)
 5. [Install plugins](#tmux-beauty)
 
+![tmux preview](https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbUF_j0kOFus1ilHhWfuXuNzA3-3_uyRDyKQFqXacspcBwMS9Jrhd60-Jalm5LJ4fXI7E4fG7NSgzXE0tFwuDcutpyAqJOR9os=w1848-h968-rw-v1)
 
 ### [tmux](https://github.com/tmux/tmux/wiki/Installing)
 
