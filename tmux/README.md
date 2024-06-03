@@ -25,11 +25,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 ### [Nerd font](https://www.nerdfonts.com/font-downloads)
 
-1. Download your preferred font. My favorite ["SauceCodePro"](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SourceCodePro.zip).
+1. Download your preferred font. My favorite ["JetBrainsMono"](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip).
 2. Unzip archive and copy the directory to _/usr/local/share/fonts_.
 3. Rebuild the font cache `fc-cache -fv`.
-4. To change the terminal font in Xfce Terminal, go to Edit > Preferences > Appearance > Font, and select "SauceCodePro Nerd Font Medium."
-5. Change the terminal font. I use Xfce Terminal. Go to Edit > Preferences > Appearance > Font, and select "SauceCodePro Nerd Font Medium" typeface.
+4. Change the terminal font. I use Xfce Terminal. Go to Edit > Preferences > Appearance > Font, and select "JetBrainsMonoNL Medium" typeface.
 
 
 ### Set up config tmux files
