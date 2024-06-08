@@ -3,8 +3,9 @@
 1. [Install tmux](#tmux)
 2. [Install Tmux Plugin Manger](#tmux-plugin-manager)
 3. [Download and configure Nerd Font](#nerd-font)
-4. [Create symbolic links for tmux configuration files](#set-up-config-tmux-files)
-5. [Install plugins](#tmux-beauty)
+4. [Additional system requirements](#extra-system-dependencies) 
+5. [Create symbolic links for tmux configuration files](#set-up-config-tmux-files)
+6. [Install plugins](#tmux-beauty)
 
 ![tmux preview](https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbUF_j0kOFus1ilHhWfuXuNzA3-3_uyRDyKQFqXacspcBwMS9Jrhd60-Jalm5LJ4fXI7E4fG7NSgzXE0tFwuDcutpyAqJOR9os=w1848-h968-rw-v1)
 
@@ -15,13 +16,11 @@ sudo apt update && \
 sudo apt install tmux
 ```
 
-
 ### [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation)
 
 ```shell
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
-
 
 ### [Nerd font](https://www.nerdfonts.com/font-downloads)
 
@@ -30,8 +29,13 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 3. Rebuild the font cache `fc-cache -fv`.
 4. Change the terminal font. I use Xfce Terminal. Go to Edit > Preferences > Appearance > Font, and select "JetBrainsMonoNL Medium" typeface.
 
+### Extra system dependencies
+
+The [ `tmux-urlview` ](https://github.com/tmux-plugins/tmux-urlview) plugin relies on either [ urlview ](https://github.com/sigpipe/urlview) or [ extract_url ](http://www.memoryhole.net/~kyle/extract_url/).
+
 
 ### Set up config tmux files
+
 From the root of the repository
 
 ```shell
