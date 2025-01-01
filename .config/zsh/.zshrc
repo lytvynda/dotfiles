@@ -69,6 +69,7 @@ alias ls='ls --color'
 alias copy="xclip -selection c"
 alias paste="xclip -selection clipboard -o"
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # PATHs
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
@@ -82,7 +83,6 @@ export NVM_DIR="$HOME/.nvm"
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/danilly/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/danilly/Downloads/google-cloud-sdk/path.zsh.inc'; fi
