@@ -63,6 +63,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias c='clear'
 alias k='kubectl'
+alias f='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 alias v='nvim'
 alias vim='nvim'
 alias ls='ls --color'
