@@ -9,9 +9,42 @@ if wezterm.config_builder then
 end
 
 -- Maximize the window right away
-wezterm.on('gui-startup', function()
+wezterm.on("gui-startup", function()
 	local tab, pane, window = mux.spawn_window({})
 	window:gui_window():maximize()
+end)
+
+local session_manager = require("wezterm-session-manager/session-manager")
+wezterm.on("save_session", function(window)
+	session_manager.save_state(window)
+end)
+wezterm.on("load_session", function(window)
+	session_manager.load_state(window)
+end)
+wezterm.on("restore_session", function(window)
+	session_manager.restore_state(window)
+end)
+wezterm.on("user-var-changed", function(window, pane, name, value)
+	local overrides = window:get_config_overrides() or {}
+	if name == "ZEN_MODE" then
+		local incremental = value:find("+")
+		local number_value = tonumber(value)
+		if incremental ~= nil then
+			while number_value > 0 do
+				window:perform_action(wezterm.action.IncreaseFontSize, pane)
+				number_value = number_value - 1
+			end
+			overrides.enable_tab_bar = false
+		elseif number_value < 0 then
+			window:perform_action(wezterm.action.ResetFontSize, pane)
+			overrides.font_size = nil
+			overrides.enable_tab_bar = true
+		else
+			overrides.font_size = number_value
+			overrides.enable_tab_bar = false
+		end
+	end
+	window:set_config_overrides(overrides)
 end)
 
 -- Settings
@@ -65,6 +98,10 @@ config.keys = {
 	{ key = "l", mods = "ALT|SHIFT", action = act.ActivateTabRelative(1) },
 
 	{ key = "w", mods = "LEADER", action = act.ShowTabNavigator },
+
+	{ key = "S", mods = "LEADER", action = wezterm.action({ EmitEvent = "save_session" }) },
+	{ key = "L", mods = "LEADER", action = wezterm.action({ EmitEvent = "load_session" }) },
+	{ key = "R", mods = "LEADER", action = wezterm.action({ EmitEvent = "restore_session" }) },
 }
 
 for i = 1, 9 do
