@@ -75,6 +75,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # PATHs
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/scripts"
 
 export NVM_DIR="$HOME/.nvm"
@@ -84,6 +85,7 @@ export NVM_DIR="$HOME/.nvm"
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/danilly/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/danilly/Downloads/google-cloud-sdk/path.zsh.inc'; fi
