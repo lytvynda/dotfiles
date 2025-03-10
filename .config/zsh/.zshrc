@@ -5,6 +5,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Update PATH for the Google Cloud SDK.
+if [ -f '/home/danilly/Downloads/google-cloud-sdk/path.zsh.inc' ]; then
+  source '/home/danilly/Downloads/google-cloud-sdk/path.zsh.inc'
+fi
+
+# Enable shell command completion for gcloud.
+if [ -f '/home/danilly/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then
+  source '/home/danilly/Downloads/google-cloud-sdk/completion.zsh.inc'
+fi
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -69,7 +79,6 @@ alias vim='nvim'
 alias ls='ls --color'
 alias copy="xclip -selection c"
 alias paste="xclip -selection clipboard -o"
-alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # PATHs
@@ -87,8 +96,8 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/danilly/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/danilly/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+dotdiff() {
+  preview="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff $@ --color=always -- {-1}"
+  /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff $@ --name-only | fzf -m --ansi --preview $preview
+}
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/danilly/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/danilly/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

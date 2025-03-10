@@ -8,22 +8,26 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
--- Maximize the window right away
+local session_manager = require("wezterm-session-manager/session-manager")
+
+wezterm.on("save_session", function(window)
+	session_manager.save_state(window)
+end)
+
+wezterm.on("load_session", function(window)
+	session_manager.load_state(window)
+end)
+
+wezterm.on("restore_session", function(window)
+	session_manager.restore_state(window)
+end)
+
 wezterm.on("gui-startup", function()
+	-- Maximize the window right away
 	local tab, pane, window = mux.spawn_window({})
 	window:gui_window():maximize()
 end)
 
-local session_manager = require("wezterm-session-manager/session-manager")
-wezterm.on("save_session", function(window)
-	session_manager.save_state(window)
-end)
-wezterm.on("load_session", function(window)
-	session_manager.load_state(window)
-end)
-wezterm.on("restore_session", function(window)
-	session_manager.restore_state(window)
-end)
 wezterm.on("user-var-changed", function(window, pane, name, value)
 	local overrides = window:get_config_overrides() or {}
 	if name == "ZEN_MODE" then
@@ -49,10 +53,7 @@ end)
 
 -- Settings
 config.color_scheme = "Batman"
-config.font = wezterm.font_with_fallback({
-	{ family = "JetBrainsMono NF", scale = 1.1, assume_emoji_presentation = true },
-	{ family = "SauceCodePro NF", scale = 1.1, assume_emoji_presentation = true },
-})
+config.font = wezterm.font({ family = "FiraMono Nerd Font Mono" })
 config.window_background_opacity = 0.9
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "AlwaysPrompt"

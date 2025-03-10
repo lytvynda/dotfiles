@@ -21,13 +21,14 @@ return {
 
 		mason_lspconfig.setup({
 			ensure_installed = {
-				"ts_ls",
-				"denols",
 				"html",
 				"cssls",
-				"tailwindcss",
+				"ts_ls",
 				"lua_ls",
+				"denols",
 				"pyright",
+				"angularls",
+				"tailwindcss",
 			},
 		})
 

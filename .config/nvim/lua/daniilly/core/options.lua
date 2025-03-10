@@ -3,6 +3,7 @@ vim.cmd("let g:netrw_liststyle = 3")
 local opt = vim.opt
 
 opt.relativenumber = true
+opt.autoread = true
 opt.number = true
 opt.scrolloff = 8
 
@@ -33,3 +34,6 @@ opt.clipboard:append("unnamedplus")
 
 opt.splitright = true
 opt.splitbelow = true
+
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
