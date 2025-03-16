@@ -4,6 +4,7 @@ local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("n", "Q", "<nop>")
+keymap.set("n", "x", '"_x')
 
 -- do not move cursor on join
 keymap.set("n", "J", "mzJ`z")
