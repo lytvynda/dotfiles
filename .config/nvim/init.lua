@@ -1,2 +1,2 @@
-require("daniilly.core")
-require("daniilly.lazy")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
